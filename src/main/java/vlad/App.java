@@ -4,6 +4,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import vlad.config.SpringConfig;
 import vlad.entity.TransportType;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class App {
@@ -13,7 +14,13 @@ public class App {
 //        List<TransportType> allTransportTypes = restClient.getAll();
 //        TransportType transportType = restClient.getById(1);
 //        System.out.println(transportType);
-        restClient.deleteById(1);
-
+//        restClient.deleteById(1);
+        TransportType transportType = new TransportType();
+        transportType.setBrandName("SOME BRAND");
+        transportType.setStartOfProduce(LocalDate.now());
+        transportType.setEndOfProduce(null);
+        transportType.setModelName("Cool car 999");
+        transportType.setModificationName("1");
+        restClient.save(transportType);
     }
 }
