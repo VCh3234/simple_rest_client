@@ -10,9 +10,10 @@ public class App {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
         RestClient restClient = context.getBean("restClient", RestClient.class);
-        //List<TransportType> allTransportTypes = restClient.getAll();
-        TransportType transportType = restClient.getById(1);
-        System.out.println(transportType);
+//        List<TransportType> allTransportTypes = restClient.getAll();
+//        TransportType transportType = restClient.getById(1);
+//        System.out.println(transportType);
+        restClient.deleteById(1);
 
     }
 }

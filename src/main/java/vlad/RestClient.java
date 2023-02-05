@@ -36,7 +36,9 @@ public class RestClient {
     }
 
     public void deleteById(long id) {
-
+        ResponseEntity<String> response =
+                restTemplate.exchange((URL + "/" + id), HttpMethod.DELETE, null, new ParameterizedTypeReference<String>() {});
+        System.out.println("delete TransportType with id:= "+ id);
     }
 
     public void save(TransportType transportType) {
