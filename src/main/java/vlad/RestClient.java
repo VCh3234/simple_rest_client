@@ -30,7 +30,9 @@ public class RestClient {
     }
 
     public TransportType getById(long id) {
-        return null;
+        ResponseEntity<TransportType> response =
+                restTemplate.exchange((URL + "/" + id), HttpMethod.GET, null, new ParameterizedTypeReference<TransportType>() {});
+        return response.getBody();
     }
 
     public void deleteById(long id) {
